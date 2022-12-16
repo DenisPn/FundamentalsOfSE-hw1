@@ -48,7 +48,6 @@ public class SystemController {
 
         try {
             dataController.AttemptLogin(showInfo.city,user,pass);
-                //throw new IllegalArgumentException("Incorrect username or password");
             return showsController.addShow(showInfo, dataController.getHall(showInfo.city, showInfo.hall));
         }
         catch (Exception e){

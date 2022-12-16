@@ -30,7 +30,9 @@ public class DataController {
     public void AttemptLogin(String city,String userName,String password){
         if(!cities.containsKey(city))
             throw new IllegalArgumentException("City not in system");
-        cities.get(city).AttemptLogin(userName,password);
+        if(!cities.get(city).AttemptLogin(userName,password))
+            throw new IllegalArgumentException("Login failed, INTRUDER DETECTED: COMMENCING SYSTEM PURGE");
+
     }
     public Hall getHall(String city,String hallName){
         if(!cities.containsKey(city))
